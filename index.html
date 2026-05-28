@@ -13,31 +13,27 @@
   ════════════════════════════════════════════════════ -->
 
   <div id="preloader" aria-hidden="true">
+    <div class="pre-contenido">
 
-    <!-- Fase 1: Logo + barra de carga -->
-    <div class="pre-fase" id="pre-f1">
+      <!-- Logo persistente — nunca hace fade-out ni reaparece -->
       <div class="pre-logo-wrap">
         <img class="pre-logo-img" id="pre-logo-img"
           src="assets/img/logo-preloader.png" alt="" draggable="false">
         <div class="pre-logo-fallback" aria-hidden="true"></div>
       </div>
-      <div class="pre-barra-track">
-        <div class="pre-barra" id="pre-barra"></div>
-      </div>
-    </div>
 
-    <!-- Fase 2: Identidad institucional -->
-    <div class="pre-fase" id="pre-f2">
-      <div class="pre-identidad">
-        <img class="pre-id-logo"
-          src="assets/img/logo-preloader.png" alt="" draggable="false">
-        <div class="pre-id-texto">
+      <!-- Zona compartida: barra e identidad ocupan el mismo espacio -->
+      <div class="pre-info">
+        <div class="pre-barra-track" id="pre-barra-track">
+          <div class="pre-barra" id="pre-barra"></div>
+        </div>
+        <div class="pre-identidad" id="pre-identidad">
           <span class="pre-id-nombre">Logia Teófilo Leal N° 115</span>
           <span class="pre-id-oriente">Oriente de Barquisimeto</span>
         </div>
       </div>
-    </div>
 
+    </div>
   </div>
 
   <!-- Panel vacío de transición (cortina) -->

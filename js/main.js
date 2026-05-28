@@ -388,47 +388,37 @@ function configurarEntradas() {
 /* ════════════════════════════════════════════════════════════
    PRELOADER — Antesala ceremonial
    Secuencia:
-   Fase 1 (logo + barra) → Fase 2 (identidad) → panel sube
-   → init() se llama → panel se retira → Acto I se revela
+   Logo aparece → barra se llena → barra fade-out / texto fade-in
+   → panel sube → init() → panel se retira → Acto I se revela
+   El logo no se mueve ni reaparece en ningún momento.
 ════════════════════════════════════════════════════════════ */
 function iniciarPreloader() {
-  const elPre   = document.getElementById('preloader');
-  const elPanel = document.getElementById('pre-panel');
-  const f1      = document.getElementById('pre-f1');
-  const f2      = document.getElementById('pre-f2');
-  const barra   = document.getElementById('pre-barra');
-  const logoImg = document.getElementById('pre-logo-img');
+  const elPre      = document.getElementById('preloader');
+  const elPanel    = document.getElementById('pre-panel');
+  const barraEl    = document.getElementById('pre-barra');
+  const barraTrack = document.getElementById('pre-barra-track');
+  const identidad  = document.getElementById('pre-identidad');
+  const logoImg    = document.getElementById('pre-logo-img');
 
-  /* Si no existe el preloader en el DOM, arrancar directo */
   if (!elPre) { init(); return; }
 
-  /* Logo: visible al cargar, fallback CSS si no existe */
+  /* Logo: fade-in al cargar, fallback CSS si hay error */
   if (logoImg) {
     const mostrarLogo = () => { logoImg.style.opacity = '1'; };
     if (logoImg.complete && logoImg.naturalWidth > 0) {
       mostrarLogo();
     } else {
-      logoImg.addEventListener('load', mostrarLogo, { once: true });
+      logoImg.addEventListener('load',  mostrarLogo, { once: true });
       logoImg.addEventListener('error', () => { logoImg.style.display = 'none'; }, { once: true });
-    }
-    /* También el logo de la Fase 2 */
-    const id2 = elPre.querySelector('.pre-id-logo');
-    if (id2) {
-      const mostrar2 = () => { id2.style.opacity = '1'; };
-      if (id2.complete && id2.naturalWidth > 0) mostrar2();
-      else {
-        id2.addEventListener('load',  mostrar2, { once: true });
-        id2.addEventListener('error', () => { id2.style.display = 'none'; }, { once: true });
-      }
     }
   }
 
-  let puedeSkip = false;
-  let saltado   = false;
+  let puedeSkip   = false;
+  let saltado     = false;
+  let panelActivo = false; /* evita doble llamada a cubrirConPanel */
 
   setTimeout(() => { puedeSkip = true; }, PRE.minSkipMs);
 
-  /* Skip: click, tecla o toque después del mínimo */
   function intentarSaltar() {
     if (puedeSkip && !saltado) saltar();
   }
@@ -442,43 +432,40 @@ function iniciarPreloader() {
     document.removeEventListener('touchstart', intentarSaltar);
   }
 
-  /* ── FASE 1: Logo + barra ─────────────────────────────── */
-  f1.classList.add('activa');
-
-  let progBarra  = 0;
-  const stepVal  = 100 / (PRE.durBarra / 16);
-  const timerBar = setInterval(() => {
-    if (saltado) { clearInterval(timerBar); return; }
+  /* ── Rellenar la barra ─────────────────────────────────── */
+  let progBarra = 0;
+  const stepVal = 100 / (PRE.durBarra / 16);
+  const timer   = setInterval(() => {
+    if (saltado) { clearInterval(timer); return; }
     progBarra = Math.min(100, progBarra + stepVal);
-    barra.style.width = progBarra + '%';
+    barraEl.style.width = progBarra + '%';
     if (progBarra >= 100) {
-      clearInterval(timerBar);
-      setTimeout(irAFase2, PRE.pausaF1);
+      clearInterval(timer);
+      setTimeout(mostrarIdentidad, PRE.pausaF1);
     }
   }, 16);
 
-  /* ── FASE 2: Identidad ────────────────────────────────── */
-  function irAFase2() {
+  /* ── Crossfade: barra desaparece, texto aparece ──────────
+     El logo permanece fijo durante todo este momento.        */
+  function mostrarIdentidad() {
     if (saltado) return;
-    f1.classList.remove('activa');
+    barraTrack.classList.add('oculta');
     setTimeout(() => {
       if (saltado) return;
-      f2.classList.add('activa');
+      identidad.classList.add('visible');
       setTimeout(cubrirConPanel, PRE.durF2);
-    }, PRE.durFade);
+    }, Math.round(PRE.durFade * 0.55));
   }
 
-  /* ── PANEL CUBRE → init() → panel se retira ──────────── */
+  /* ── Panel sube → init() → panel se retira ────────────── */
   function cubrirConPanel() {
-    if (saltado) saltado = true; /* evitar doble llamada */
+    if (panelActivo) return;
+    panelActivo = true;
     limpiarSkip();
-    f1.classList.remove('activa');
-    f2.classList.remove('activa');
     elPanel.classList.add('cubriendo');
-
     setTimeout(() => {
-      elPre.classList.add('oculto'); /* preloader desaparece */
-      init();                        /* Acto I arranca debajo del panel */
+      elPre.classList.add('oculto');
+      init();
       setTimeout(retirarPanel, PRE.pausaPanel);
     }, PRE.durPanel);
   }
@@ -489,15 +476,13 @@ function iniciarPreloader() {
     setTimeout(() => elPanel.remove(), PRE.durRetiro + 100);
   }
 
-  /* ── SALTAR ───────────────────────────────────────────── */
+  /* ── Skip: completa la barra y va directo al panel ─────── */
   function saltar() {
     saltado = true;
-    clearInterval(timerBar);
-    barra.style.transition = 'width 0.28s ease-out';
-    barra.style.width = '100%';
-    f1.classList.remove('activa');
-    f2.classList.remove('activa');
-    setTimeout(cubrirConPanel, 320);
+    clearInterval(timer);
+    barraEl.style.transition = 'width 0.25s ease-out';
+    barraEl.style.width      = '100%';
+    setTimeout(cubrirConPanel, 340);
   }
 }
 
