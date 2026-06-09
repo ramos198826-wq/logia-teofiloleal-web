@@ -587,3 +587,160 @@ body.revealed .r5      { transition-delay: 1.24s; }
   .pre-logo-wrap::before { animation: none; opacity: 0.7; }
   .pre-logo-img { transform: scale(1); transition: opacity 0.3s ease; }
 }
+
+
+/* ============================================================
+   PÁGINAS INTERNAS — prefijo .bio-*
+   Usado por: pages/teofilo-leal.html
+============================================================ */
+
+/* Navbar fija */
+.bio-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(14,13,11,0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.bio-nav .nav { border-bottom: none; }
+
+.bio-nav-return {
+  font-family: var(--sans); font-size: clamp(9px,0.78vw,11px);
+  letter-spacing: .18em; text-transform: uppercase; text-decoration: none;
+  color: rgba(200,180,150,.55); white-space: nowrap;
+  border: 1px solid rgba(184,149,58,.22); padding: 9px 22px;
+  transition: color .3s var(--ease), border-color .3s var(--ease);
+}
+.bio-nav-return:hover { color: var(--crema-txt); border-color: rgba(184,149,58,.55); }
+
+/* Hero */
+.bio-hero {
+  padding: clamp(4rem,9vh,7rem) clamp(2rem,8vw,8rem) clamp(3rem,6vh,5rem);
+  text-align: center;
+  border-bottom: 1px solid rgba(184,149,58,.07);
+}
+.bio-hero-inner {
+  max-width: var(--content-max); margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center; gap: 1.6rem;
+}
+.bio-hero-title {
+  font-family: var(--serif); font-size: clamp(38px,6vw,72px);
+  font-weight: 500; line-height: 1.1; letter-spacing: -.01em; color: var(--crema-txt);
+}
+.bio-hero-sub {
+  font-family: var(--sans); font-size: clamp(13px,1.1vw,16px);
+  line-height: 1.8; letter-spacing: .01em;
+  color: rgba(215,200,175,.6); max-width: 520px;
+}
+
+/* Cuadro conmemorativo */
+.bio-portrait {
+  max-width: 440px; margin: 0 auto;
+  padding: clamp(3rem,6vh,5rem) 2rem;
+  text-align: center;
+}
+.bio-portrait-img {
+  display: block; max-width: 100%; height: auto;
+  filter: drop-shadow(0 14px 32px rgba(0,0,0,.70)) drop-shadow(0 4px 12px rgba(90,60,10,.30));
+}
+.bio-portrait-caption {
+  margin-top: 1.2rem;
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(184,149,58,.38);
+}
+
+/* Separador de diamante */
+.bio-diamond-sep {
+  display: flex; align-items: center;
+  padding: 2.6rem 0;
+}
+.bio-diamond-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(154,116,50,.22) 50%, transparent);
+}
+.bio-diamond-gem {
+  width: 6px; height: 6px; flex-shrink: 0;
+  background: #9a7432; transform: rotate(45deg);
+  opacity: .6; margin: 0 18px;
+}
+
+/* Contenido principal */
+.bio-content-wrap {
+  max-width: var(--content-max); margin: 0 auto;
+  padding: 0 clamp(1.5rem,5vw,3rem) clamp(5rem,10vh,8rem);
+}
+.bio-section { margin-bottom: 1rem; }
+
+.bio-section-label {
+  display: block;
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .35em; text-transform: uppercase;
+  color: rgba(184,149,58,.55); margin-bottom: 1.1rem;
+}
+.bio-section-title {
+  font-family: var(--serif); font-size: clamp(22px,2.8vw,30px);
+  font-weight: 400; color: #e8d9b0;
+  line-height: 1.25; margin-bottom: 1.4rem; letter-spacing: .01em;
+}
+.bio-rule { width: 40px; height: 1px; background: var(--dorado); opacity: .5; margin-bottom: 2.5rem; }
+
+.bio-body p {
+  font-family: var(--cormorant); font-size: clamp(17px,1.9vw,20px);
+  font-weight: 300; line-height: 1.9;
+  color: rgba(232,217,176,.76); margin-bottom: 1.6rem;
+}
+.bio-body p strong { font-weight: 500; color: rgba(232,217,176,.9); }
+.bio-body p em     { color: var(--dorado-suave); font-style: italic; }
+.bio-body p:last-child { margin-bottom: 0; }
+
+/* Cita / legado */
+.bio-legacy {
+  margin: 3rem 0;
+  padding: 2.4rem 2.8rem;
+  border: 1px solid rgba(154,116,50,.22);
+  background: rgba(154,116,50,.04);
+}
+.bio-legacy-text {
+  font-family: var(--serif); font-size: clamp(15px,1.75vw,18px);
+  font-style: italic; line-height: 1.8;
+  color: rgba(232,217,176,.7); margin: 0;
+}
+
+/* Acciones */
+.bio-actions {
+  display: flex; align-items: center;
+  gap: 2rem; flex-wrap: wrap;
+  margin-top: 3.5rem; padding-top: 2rem;
+  border-top: 1px solid rgba(184,149,58,.1);
+}
+
+/* Footer mínimo */
+.bio-footer {
+  padding: 2.2rem clamp(1.5rem,4vw,3rem);
+  border-top: 1px solid rgba(184,149,58,.07);
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+}
+.bio-footer-marca {
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(184,149,58,.25);
+}
+.bio-footer-lema {
+  font-family: var(--serif); font-size: 13px;
+  font-style: italic; color: rgba(232,217,176,.28);
+}
+
+/* Responsive páginas internas */
+@media (max-width: 700px) {
+  .bio-hero       { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .bio-hero-sub br { display: none; }
+  .bio-legacy     { padding: 1.8rem 1.6rem; }
+  .bio-actions    { flex-direction: column; align-items: flex-start; }
+  .bio-footer     { flex-direction: column; text-align: center; align-items: center; }
+  .bio-nav-return { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bio-portrait-img { filter: none; }
+}
