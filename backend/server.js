@@ -69,6 +69,10 @@ app.post("/api/aspirantes", (req, res) => {
     return res.status(400).json({ message: "Todos los campos son obligatorios" });
   }
 
+  if (parseInt(data.edad, 10) < 18) {
+    return res.status(422).json({ message: "Debes tener al menos 18 años." });
+  }
+
   let aspirantes = [];
 
   if (fs.existsSync(archivoAspirantes)) {
