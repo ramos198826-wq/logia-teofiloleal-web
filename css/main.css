@@ -914,3 +914,320 @@ a.a4-cta { text-decoration: none; display: inline-block; }
   .asp-input, .asp-textarea, .asp-submit { transition: none; }
   .asp-msg { transition: none; }
 }
+
+
+/* ============================================================
+   PANEL ADMINISTRATIVO — prefijo .pnl-*
+   Usado por: pages/login.html  y  pages/panel-aspirantes.html
+============================================================ */
+
+/* ── LOGIN ─────────────────────────────────────────────── */
+.pnl-login-wrap {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 2rem;
+}
+
+.pnl-login-card {
+  width: 100%; max-width: 420px;
+  border: 1px solid rgba(154,116,50,.22);
+  background: rgba(154,116,50,.03);
+  padding: clamp(2.5rem,5vh,4rem) clamp(2rem,5vw,3rem);
+}
+
+.pnl-login-logo {
+  display: block; width: 64px; height: 64px;
+  object-fit: contain; margin: 0 auto 1.8rem;
+  filter: invert(1) sepia(0.18) saturate(1.5) brightness(0.85);
+  opacity: .8;
+}
+
+.pnl-login-title {
+  font-family: var(--serif); font-size: clamp(22px,3vw,28px);
+  font-weight: 400; text-align: center; color: var(--crema-txt);
+  margin-bottom: .5rem;
+}
+
+.pnl-login-sub {
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .28em; text-transform: uppercase;
+  color: rgba(184,149,58,.4); text-align: center;
+  margin-bottom: 2.4rem;
+}
+
+.pnl-login-form { display: flex; flex-direction: column; gap: 1.4rem; }
+
+/* ── CABECERA DEL PANEL ────────────────────────────────── */
+.pnl-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(14,13,11,.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(184,149,58,.08);
+}
+
+.pnl-header-inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 clamp(1.5rem,4vw,3rem);
+  height: 60px;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+}
+
+.pnl-header-brand {
+  display: flex; align-items: center; gap: .9rem;
+}
+
+.pnl-header-logo {
+  width: 32px; height: 32px; object-fit: contain;
+  filter: invert(1) sepia(0.18) saturate(1.5) brightness(0.85);
+  opacity: .75;
+}
+
+.pnl-header-name {
+  font-family: var(--sans); font-size: 11px;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(200,180,150,.6);
+}
+
+.pnl-header-tag {
+  font-family: var(--sans); font-size: 9px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(184,149,58,.4);
+  border: 1px solid rgba(184,149,58,.15);
+  padding: 3px 10px;
+}
+
+.pnl-btn-salir {
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(200,180,150,.45); background: none; border: none; cursor: pointer;
+  padding: 6px 0;
+  transition: color .25s;
+}
+.pnl-btn-salir:hover { color: rgba(225,100,85,.8); }
+
+/* ── CUERPO DEL PANEL ──────────────────────────────────── */
+.pnl-body {
+  max-width: 1200px; margin: 0 auto;
+  padding: 2.5rem clamp(1.5rem,4vw,3rem) 5rem;
+}
+
+.pnl-page-title {
+  font-family: var(--serif); font-size: clamp(22px,3vw,30px);
+  font-weight: 400; color: var(--crema-txt);
+  margin-bottom: .4rem;
+}
+
+.pnl-page-sub {
+  font-family: var(--sans); font-size: 11px;
+  letter-spacing: .1em; color: rgba(184,149,58,.4);
+  margin-bottom: 2rem;
+}
+
+/* ── ESTADÍSTICAS ──────────────────────────────────────── */
+.pnl-stats {
+  display: flex; gap: 1px; flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  border: 1px solid rgba(184,149,58,.12);
+}
+
+.pnl-stat {
+  flex: 1; min-width: 100px;
+  padding: 1.2rem 1.4rem;
+  background: rgba(154,116,50,.03);
+  border-right: 1px solid rgba(184,149,58,.08);
+  text-align: center;
+}
+.pnl-stat:last-child { border-right: none; }
+
+.pnl-stat-num {
+  display: block;
+  font-family: var(--serif); font-size: clamp(24px,3vw,34px);
+  font-weight: 400; color: var(--crema-txt);
+  line-height: 1;
+}
+
+.pnl-stat-label {
+  display: block;
+  font-family: var(--sans); font-size: 9px;
+  letter-spacing: .24em; text-transform: uppercase;
+  color: rgba(184,149,58,.45);
+  margin-top: .4rem;
+}
+
+/* ── TABLA DE ASPIRANTES ───────────────────────────────── */
+.pnl-table-wrap { overflow-x: auto; }
+
+.pnl-table {
+  width: 100%; border-collapse: collapse;
+  font-family: var(--sans);
+}
+
+.pnl-table th {
+  font-size: 9px; letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(184,149,58,.55);
+  padding: 10px 14px; text-align: left;
+  border-bottom: 1px solid rgba(184,149,58,.14);
+  white-space: nowrap;
+}
+
+.pnl-table td {
+  padding: 11px 14px;
+  font-size: 12px; color: rgba(215,200,175,.75);
+  border-bottom: 1px solid rgba(184,149,58,.06);
+  vertical-align: middle;
+}
+
+.pnl-table tr:hover td { background: rgba(154,116,50,.04); }
+
+/* Badge de estado */
+.pnl-badge {
+  display: inline-block;
+  font-family: var(--sans); font-size: 9px;
+  letter-spacing: .14em; text-transform: uppercase;
+  padding: 3px 9px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+.pnl-badge--nuevo      { color: rgba(184,149,58,.9);   border-color: rgba(184,149,58,.25); }
+.pnl-badge--contactado { color: rgba(180,200,220,.8);   border-color: rgba(180,200,220,.2); }
+.pnl-badge--proceso    { color: rgba(200,180,100,.85);  border-color: rgba(200,180,100,.22); }
+.pnl-badge--aprobado   { color: rgba(130,190,130,.9);   border-color: rgba(130,190,130,.22); }
+.pnl-badge--rechazado  { color: rgba(200,90,80,.85);    border-color: rgba(200,90,80,.22); }
+
+/* Select de estado */
+.pnl-select {
+  background: rgba(14,13,11,.8);
+  border: 1px solid rgba(184,149,58,.18);
+  color: rgba(215,200,175,.8);
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .1em;
+  padding: 5px 8px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color .2s;
+}
+.pnl-select:focus { border-color: rgba(184,149,58,.45); }
+
+/* Botones de acción en tabla */
+.pnl-btn {
+  font-family: var(--sans); font-size: 9px;
+  letter-spacing: .15em; text-transform: uppercase;
+  background: none; border: 1px solid; cursor: pointer;
+  padding: 5px 10px;
+  transition: color .2s, border-color .2s, background .2s;
+}
+.pnl-btn--historial {
+  color: rgba(184,149,58,.6); border-color: rgba(184,149,58,.2);
+}
+.pnl-btn--historial:hover {
+  color: rgba(184,149,58,1); border-color: rgba(184,149,58,.5);
+  background: rgba(184,149,58,.05);
+}
+.pnl-btn--eliminar {
+  color: rgba(200,90,80,.6); border-color: rgba(200,90,80,.2);
+}
+.pnl-btn--eliminar:hover {
+  color: rgba(200,90,80,1); border-color: rgba(200,90,80,.5);
+  background: rgba(200,90,80,.05);
+}
+
+/* Mensaje vacío */
+.pnl-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-family: var(--serif); font-size: 18px; font-style: italic;
+  color: rgba(232,217,176,.25);
+  border: 1px solid rgba(184,149,58,.08);
+}
+
+/* ── MODALES ───────────────────────────────────────────── */
+.pnl-modal {
+  display: none; position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,.75);
+  align-items: center; justify-content: center;
+  padding: 2rem;
+}
+.pnl-modal.abierto { display: flex; }
+
+.pnl-modal-card {
+  width: 100%; max-width: 540px;
+  background: var(--negro);
+  border: 1px solid rgba(154,116,50,.22);
+  padding: 2.5rem 2.8rem;
+  position: relative;
+}
+
+.pnl-modal-cerrar {
+  position: absolute; top: 1.2rem; right: 1.4rem;
+  background: none; border: none; cursor: pointer;
+  font-family: var(--sans); font-size: 16px;
+  color: rgba(200,180,150,.35);
+  transition: color .2s;
+}
+.pnl-modal-cerrar:hover { color: rgba(200,180,150,.8); }
+
+.pnl-modal-title {
+  font-family: var(--serif); font-size: clamp(18px,2.5vw,22px);
+  font-weight: 400; color: var(--crema-txt);
+  margin-bottom: 1.8rem;
+}
+
+/* Historial */
+.pnl-historial-item {
+  padding: 1rem 1.2rem;
+  border-left: 2px solid rgba(184,149,58,.25);
+  margin-bottom: 1rem;
+  background: rgba(154,116,50,.03);
+}
+.pnl-historial-item:last-child { margin-bottom: 0; }
+
+.pnl-historial-estado {
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(184,149,58,.75); display: block; margin-bottom: .3rem;
+}
+
+.pnl-historial-fecha {
+  font-family: var(--sans); font-size: 11px;
+  color: rgba(215,200,175,.45);
+}
+
+/* Modal eliminar */
+.pnl-modal-aviso {
+  font-family: var(--sans); font-size: 13px;
+  line-height: 1.7; color: rgba(215,200,175,.65);
+  margin-bottom: 2rem;
+}
+
+.pnl-modal-acciones {
+  display: flex; gap: 1rem; justify-content: flex-end;
+}
+
+.pnl-btn--cancelar {
+  color: rgba(200,180,150,.5); border-color: rgba(200,180,150,.15);
+}
+.pnl-btn--cancelar:hover {
+  color: rgba(200,180,150,.9); border-color: rgba(200,180,150,.4);
+}
+.pnl-btn--confirmar {
+  color: rgba(200,90,80,.8); border-color: rgba(200,90,80,.3);
+}
+.pnl-btn--confirmar:hover {
+  color: rgba(200,90,80,1); border-color: rgba(200,90,80,.6);
+  background: rgba(200,90,80,.06);
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .pnl-stats { flex-direction: column; gap: 0; }
+  .pnl-stat  { border-right: none; border-bottom: 1px solid rgba(184,149,58,.08); }
+  .pnl-stat:last-child { border-bottom: none; }
+  .pnl-table th, .pnl-table td { padding: 8px 10px; }
+  .pnl-modal-card { padding: 2rem 1.6rem; }
+  .pnl-modal-acciones { flex-direction: column-reverse; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pnl-btn, .pnl-select, .pnl-btn-salir { transition: none; }
+}

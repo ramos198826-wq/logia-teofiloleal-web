@@ -16,3 +16,8 @@ npm-debug.log*
 
 # Datos sensibles del backend
 backend/data/aspirantes.json
+
+# Variables de entorno locales
+.env
+.env.local
+.env.*.local
