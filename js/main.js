@@ -158,9 +158,50 @@ function iniciarObservadores() {
 
 
 /* ════════════════════════════════════════════════════════════
+   SESIÓN — control de preloader
+════════════════════════════════════════════════════════════ */
+const STORAGE_KEY = 'logiaPreloaderVisto';
+
+function preloaderYaVisto() {
+  try { return sessionStorage.getItem(STORAGE_KEY) === 'true'; }
+  catch (_) { return false; }
+}
+
+function marcarPreloaderVisto() {
+  try { sessionStorage.setItem(STORAGE_KEY, 'true'); }
+  catch (_) {}
+}
+
+function saltarPreloaderCompleto() {
+  const elPre   = document.getElementById('preloader');
+  const elPanel = document.getElementById('pre-panel');
+  const e01     = document.getElementById('escena-01');
+
+  // Ocultar preloader y panel de transición
+  if (elPre)   elPre.classList.add('oculto');
+  if (elPanel) elPanel.remove();
+
+  // Ocultar cortina narrativa sin animación
+  if (e01)     e01.classList.add('fuera');
+
+  // Revelar página y desbloquear scroll
+  document.body.classList.add('revealed');
+  document.body.style.overflow = '';
+
+  // Inicializar solo los módulos relevantes (sin preloader ni cortina)
+  iniciarObservadores();
+  iniciarFrasesRotativas();
+  iniciarFondosActo3();
+  iniciarHamburguesa();
+}
+
+
+/* ════════════════════════════════════════════════════════════
    PRELOADER
 ════════════════════════════════════════════════════════════ */
 function iniciarPreloader() {
+  if (preloaderYaVisto()) { saltarPreloaderCompleto(); return; }
+
   const elPre      = document.getElementById('preloader');
   const elPanel    = document.getElementById('pre-panel');
   const barraEl    = document.getElementById('pre-barra');
@@ -218,6 +259,7 @@ function iniciarPreloader() {
     limpiarSkip();
     elPanel.classList.add('cubriendo');
     setTimeout(() => {
+      marcarPreloaderVisto();
       elPre.classList.add('oculto');
       init();
       setTimeout(retirarPanel, PRE.pausaPanel);
@@ -372,7 +414,37 @@ function init() {
   iniciarObservadores();
   iniciarFrasesRotativas();
   iniciarFondosActo3();
+  iniciarHamburguesa();
 }
+
+/* ════════════════════════════════════════════════════════════
+   MENÚ HAMBURGUESA — móvil
+════════════════════════════════════════════════════════════ */
+function iniciarHamburguesa() {
+  const toggle = document.querySelector('.menu-toggle');
+  const menu   = document.querySelector('.nav .menu');
+  if (!toggle || !menu) return;
+
+  toggle.addEventListener('click', function () {
+    const abierto = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(abierto));
+  });
+
+  menu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 700) {
+      menu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+}
+
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', iniciarPreloader);

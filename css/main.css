@@ -504,6 +504,7 @@ body.revealed .r5      { transition-delay: 1.24s; }
 
 .a4-cta-wrap { display: flex; flex-direction: column; align-items: center; gap: 0.85rem; }
 .a4-cta { border: 1px solid rgba(184,149,58,.55); background: rgba(184,149,58,.04); color: var(--crema-txt); font-family: var(--sans); font-size: clamp(11px,1vw,13px); letter-spacing: .22em; text-transform: uppercase; padding: 18px 56px; cursor: pointer; border-radius: 1px; transition: background .35s ease, border-color .35s ease, transform .3s ease, box-shadow .3s ease; }
+a.a4-cta { text-decoration: none; display: inline-block; }
 .a4-cta:hover { background: rgba(184,149,58,.10); border-color: var(--dorado); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(184,149,58,.12); }
 .a4-cta-nota { font-family: var(--sans); font-size: clamp(10px,0.9vw,12px); letter-spacing: .12em; font-style: italic; color: rgba(184,149,58,.28); }
 
@@ -511,6 +512,17 @@ body.revealed .r5      { transition-delay: 1.24s; }
 .a4-link { color: rgba(184,149,58,.35); text-decoration: none; transition: color .3s; }
 .a4-link:hover { color: rgba(184,149,58,.7); }
 .a4-pie { font-family: var(--sans); font-size: clamp(8px,0.7vw,10px); letter-spacing: .24em; text-transform: uppercase; color: rgba(184,149,58,.18); margin-top: 1rem; }
+
+/* Enlace discreto en Acto III — Bloque Teófilo Leal */
+.acto3-leer-mas {
+  display: inline-block; margin-top: 1.4rem;
+  font-family: var(--sans); font-size: 11px;
+  letter-spacing: .18em; text-transform: uppercase; text-decoration: none;
+  color: rgba(184,149,58,.5);
+  border-bottom: 1px solid rgba(184,149,58,.18); padding-bottom: 2px;
+  transition: color .3s var(--ease), border-color .3s var(--ease);
+}
+.acto3-leer-mas:hover { color: var(--dorado); border-color: var(--dorado); }
 
 
 /* ============================================================
@@ -540,6 +552,19 @@ body.revealed .r5      { transition-delay: 1.24s; }
   .a3-estacion  { flex-direction: column; align-items: flex-start; gap: 2.5rem; }
   .a3-valores   { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .a4-cta       { padding: 16px 36px; }
+
+  /* Menú hamburguesa abierto */
+  .nav          { flex-wrap: wrap; }
+  .menu.open    {
+    display: flex; flex-direction: column;
+    width: 100%; order: 10; gap: 0;
+    padding: .5rem 0 .8rem;
+    border-top: 1px solid rgba(184,149,58,.1);
+  }
+  .menu.open a  {
+    padding: .8rem clamp(1.5rem,4vw,2.5rem);
+    font-size: 11px; width: 100%;
+  }
   /* Acto III mobile */
   .acto3-block {
     grid-template-columns: 1fr;
@@ -586,4 +611,623 @@ body.revealed .r5      { transition-delay: 1.24s; }
   .acto3-header, .acto3-block { animation: none; opacity: 1; transform: none; }
   .pre-logo-wrap::before { animation: none; opacity: 0.7; }
   .pre-logo-img { transform: scale(1); transition: opacity 0.3s ease; }
+}
+
+
+/* ============================================================
+   PÁGINAS INTERNAS — prefijo .bio-*
+   Usado por: pages/teofilo-leal.html
+============================================================ */
+
+/* Navbar fija */
+.bio-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(14,13,11,0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.bio-nav .nav { border-bottom: none; }
+
+.bio-nav-return {
+  font-family: var(--sans); font-size: clamp(9px,0.78vw,11px);
+  letter-spacing: .18em; text-transform: uppercase; text-decoration: none;
+  color: rgba(200,180,150,.55); white-space: nowrap;
+  border: 1px solid rgba(184,149,58,.22); padding: 9px 22px;
+  transition: color .3s var(--ease), border-color .3s var(--ease);
+}
+.bio-nav-return:hover { color: var(--crema-txt); border-color: rgba(184,149,58,.55); }
+
+/* Hero */
+.bio-hero {
+  padding: clamp(4rem,9vh,7rem) clamp(2rem,8vw,8rem) clamp(3rem,6vh,5rem);
+  text-align: center;
+  border-bottom: 1px solid rgba(184,149,58,.07);
+}
+.bio-hero-inner {
+  max-width: var(--content-max); margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center; gap: 1.6rem;
+}
+.bio-hero-title {
+  font-family: var(--serif); font-size: clamp(38px,6vw,72px);
+  font-weight: 500; line-height: 1.1; letter-spacing: -.01em; color: var(--crema-txt);
+}
+.bio-hero-sub {
+  font-family: var(--sans); font-size: clamp(13px,1.1vw,16px);
+  line-height: 1.8; letter-spacing: .01em;
+  color: rgba(215,200,175,.6); max-width: 520px;
+}
+
+/* Cuadro conmemorativo */
+.bio-portrait {
+  max-width: 440px; margin: 0 auto;
+  padding: clamp(3rem,6vh,5rem) 2rem;
+  text-align: center;
+}
+.bio-portrait-img {
+  display: block; max-width: 100%; height: auto;
+  filter: drop-shadow(0 14px 32px rgba(0,0,0,.70)) drop-shadow(0 4px 12px rgba(90,60,10,.30));
+}
+.bio-portrait-caption {
+  margin-top: 1.2rem;
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(184,149,58,.38);
+}
+
+/* Separador de diamante */
+.bio-diamond-sep {
+  display: flex; align-items: center;
+  padding: 2.6rem 0;
+}
+.bio-diamond-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(154,116,50,.22) 50%, transparent);
+}
+.bio-diamond-gem {
+  width: 6px; height: 6px; flex-shrink: 0;
+  background: #9a7432; transform: rotate(45deg);
+  opacity: .6; margin: 0 18px;
+}
+
+/* Contenido principal */
+.bio-content-wrap {
+  max-width: var(--content-max); margin: 0 auto;
+  padding: 0 clamp(1.5rem,5vw,3rem) clamp(5rem,10vh,8rem);
+}
+.bio-section { margin-bottom: 1rem; }
+
+.bio-section-label {
+  display: block;
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .35em; text-transform: uppercase;
+  color: rgba(184,149,58,.55); margin-bottom: 1.1rem;
+}
+.bio-section-title {
+  font-family: var(--serif); font-size: clamp(22px,2.8vw,30px);
+  font-weight: 400; color: #e8d9b0;
+  line-height: 1.25; margin-bottom: 1.4rem; letter-spacing: .01em;
+}
+.bio-rule { width: 40px; height: 1px; background: var(--dorado); opacity: .5; margin-bottom: 2.5rem; }
+
+.bio-body p {
+  font-family: var(--cormorant); font-size: clamp(17px,1.9vw,20px);
+  font-weight: 300; line-height: 1.9;
+  color: rgba(232,217,176,.76); margin-bottom: 1.6rem;
+}
+.bio-body p strong { font-weight: 500; color: rgba(232,217,176,.9); }
+.bio-body p em     { color: var(--dorado-suave); font-style: italic; }
+.bio-body p:last-child { margin-bottom: 0; }
+
+/* Cita / legado */
+.bio-legacy {
+  margin: 3rem 0;
+  padding: 2.4rem 2.8rem;
+  border: 1px solid rgba(154,116,50,.22);
+  background: rgba(154,116,50,.04);
+}
+.bio-legacy-text {
+  font-family: var(--serif); font-size: clamp(15px,1.75vw,18px);
+  font-style: italic; line-height: 1.8;
+  color: rgba(232,217,176,.7); margin: 0;
+}
+
+/* Acciones */
+.bio-actions {
+  display: flex; align-items: center;
+  gap: 2rem; flex-wrap: wrap;
+  margin-top: 3.5rem; padding-top: 2rem;
+  border-top: 1px solid rgba(184,149,58,.1);
+}
+
+/* Footer mínimo */
+.bio-footer {
+  padding: 2.2rem clamp(1.5rem,4vw,3rem);
+  border-top: 1px solid rgba(184,149,58,.07);
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+}
+.bio-footer-marca {
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(184,149,58,.25);
+}
+.bio-footer-lema {
+  font-family: var(--serif); font-size: 13px;
+  font-style: italic; color: rgba(232,217,176,.28);
+}
+
+/* Responsive páginas internas */
+@media (max-width: 700px) {
+  .bio-hero       { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .bio-hero-sub br { display: none; }
+  .bio-legacy     { padding: 1.8rem 1.6rem; }
+  .bio-actions    { flex-direction: column; align-items: flex-start; }
+  .bio-footer     { flex-direction: column; text-align: center; align-items: center; }
+  .bio-nav-return {
+    display: block;
+    font-size: 11px;
+    padding: 7px 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bio-portrait-img { filter: none; }
+}
+
+
+/* ============================================================
+   FORMULARIO ASPIRANTES — prefijo .asp-*
+   Usado por: pages/aspirantes.html
+============================================================ */
+
+/* Sección contenedora */
+.asp-form-section {
+  padding: clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,3rem) clamp(5rem,10vh,8rem);
+  display: flex; justify-content: center;
+}
+
+/* Tarjeta del formulario */
+.asp-form-card {
+  width: 100%; max-width: 600px;
+  border: 1px solid rgba(154,116,50,.2);
+  background: rgba(154,116,50,.03);
+  padding: clamp(2.5rem,5vh,4rem) clamp(2rem,5vw,3.5rem);
+}
+
+/* Encabezado de la tarjeta */
+.asp-card-header { text-align: center; margin-bottom: 3rem; }
+.asp-card-label {
+  display: block;
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .35em; text-transform: uppercase;
+  color: rgba(184,149,58,.55); margin-bottom: 1rem;
+}
+.asp-card-title {
+  font-family: var(--serif); font-size: clamp(22px,2.8vw,30px);
+  font-weight: 400; color: #e8d9b0;
+  line-height: 1.25; margin-bottom: 1.2rem; letter-spacing: .01em;
+}
+.asp-card-rule {
+  width: 40px; height: 1px;
+  background: var(--dorado); opacity: .5;
+  margin: 0 auto 1.4rem;
+}
+.asp-card-sub {
+  font-family: var(--sans); font-size: clamp(12px,1vw,14px);
+  line-height: 1.75; color: rgba(215,200,175,.5);
+  max-width: 400px; margin: 0 auto;
+}
+
+/* Formulario y campos */
+.asp-form { display: flex; flex-direction: column; gap: 1.8rem; }
+.asp-field { display: flex; flex-direction: column; gap: .55rem; }
+
+.asp-label {
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(184,149,58,.6);
+}
+
+.asp-input,
+.asp-textarea {
+  width: 100%;
+  background: rgba(14,13,11,.55);
+  border: 1px solid rgba(184,149,58,.2);
+  color: var(--crema-txt);
+  font-family: var(--cormorant); font-size: clamp(16px,1.7vw,18px);
+  font-weight: 300; line-height: 1.5;
+  padding: 13px 16px;
+  outline: none;
+  transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
+  -webkit-appearance: none; appearance: none;
+  border-radius: 0;
+}
+.asp-input:focus,
+.asp-textarea:focus {
+  border-color: rgba(184,149,58,.55);
+  box-shadow: 0 0 0 3px rgba(184,149,58,.05);
+}
+.asp-input::placeholder,
+.asp-textarea::placeholder { color: rgba(200,180,150,.22); font-style: italic; }
+
+/* Ocultar flechas del input numérico */
+.asp-input[type="number"]::-webkit-inner-spin-button,
+.asp-input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.asp-input[type="number"] { -moz-appearance: textfield; }
+
+.asp-textarea { resize: vertical; min-height: 128px; }
+
+/* Botón de envío */
+.asp-submit {
+  width: 100%; margin-top: .4rem;
+  padding: 16px;
+  background: rgba(14,13,11,.55);
+  border: 1px solid rgba(140,105,30,.65);
+  color: var(--crema-txt);
+  font-family: var(--sans); font-size: clamp(10px,.88vw,12px);
+  letter-spacing: .22em; text-transform: uppercase;
+  cursor: pointer;
+  transition: background .3s var(--ease), border-color .3s var(--ease),
+              transform .3s var(--ease), box-shadow .3s var(--ease), opacity .2s;
+}
+.asp-submit:hover:not(:disabled) {
+  border-color: var(--dorado); background: rgba(184,149,58,.07);
+  transform: translateY(-1px); box-shadow: 0 6px 24px rgba(184,149,58,.1);
+}
+.asp-submit:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+
+/* Mensaje de estado */
+.asp-msg {
+  font-family: var(--sans); font-size: 11px;
+  letter-spacing: .1em; text-align: center;
+  padding: 11px 16px;
+  border: 1px solid transparent;
+  opacity: 0; transition: opacity .35s var(--ease);
+}
+.asp-msg.visible { opacity: 1; }
+.asp-msg.info  { color: rgba(184,149,58,.85); border-color: rgba(184,149,58,.15); }
+.asp-msg.exito { color: rgba(130,210,130,.9);  border-color: rgba(130,210,130,.15); }
+.asp-msg.error { color: rgba(225,100,85,.9);   border-color: rgba(225,100,85,.18); }
+
+/* Texto de discreción */
+.asp-discrecion {
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .15em; text-align: center;
+  color: rgba(184,149,58,.25); margin-top: 2rem;
+}
+
+/* Enlace de retorno */
+.asp-back {
+  text-align: center;
+  margin-top: 2.5rem; padding-top: 2rem;
+  border-top: 1px solid rgba(184,149,58,.1);
+  display: flex; justify-content: center;
+}
+
+/* Responsive formulario */
+@media (max-width: 700px) {
+  .asp-form-card { padding: 2rem 1.4rem; }
+  .asp-card-header { margin-bottom: 2.2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .asp-input, .asp-textarea, .asp-submit { transition: none; }
+  .asp-msg { transition: none; }
+}
+
+
+/* ============================================================
+   PANEL ADMINISTRATIVO — prefijo .pnl-*
+   Usado por: pages/login.html  y  pages/panel-aspirantes.html
+============================================================ */
+
+/* ── LOGIN ─────────────────────────────────────────────── */
+.pnl-login-wrap {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 2rem;
+}
+
+.pnl-login-card {
+  width: 100%; max-width: 420px;
+  border: 1px solid rgba(154,116,50,.22);
+  background: rgba(154,116,50,.03);
+  padding: clamp(2.5rem,5vh,4rem) clamp(2rem,5vw,3rem);
+}
+
+.pnl-login-logo {
+  display: block; width: 64px; height: 64px;
+  object-fit: contain; margin: 0 auto 1.8rem;
+  filter: invert(1) sepia(0.18) saturate(1.5) brightness(0.85);
+  opacity: .8;
+}
+
+.pnl-login-title {
+  font-family: var(--serif); font-size: clamp(22px,3vw,28px);
+  font-weight: 400; text-align: center; color: var(--crema-txt);
+  margin-bottom: .5rem;
+}
+
+.pnl-login-sub {
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .28em; text-transform: uppercase;
+  color: rgba(184,149,58,.4); text-align: center;
+  margin-bottom: 2.4rem;
+}
+
+.pnl-login-form { display: flex; flex-direction: column; gap: 1.4rem; }
+
+/* ── CABECERA DEL PANEL ────────────────────────────────── */
+.pnl-header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(14,13,11,.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(184,149,58,.08);
+}
+
+.pnl-header-inner {
+  max-width: 1200px; margin: 0 auto;
+  padding: 0 clamp(1.5rem,4vw,3rem);
+  height: 60px;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+}
+
+.pnl-header-brand {
+  display: flex; align-items: center; gap: .9rem;
+}
+
+.pnl-header-logo {
+  width: 32px; height: 32px; object-fit: contain;
+  filter: invert(1) sepia(0.18) saturate(1.5) brightness(0.85);
+  opacity: .75;
+}
+
+.pnl-header-name {
+  font-family: var(--sans); font-size: 11px;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(200,180,150,.6);
+}
+
+.pnl-header-tag {
+  font-family: var(--sans); font-size: 9px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(184,149,58,.4);
+  border: 1px solid rgba(184,149,58,.15);
+  padding: 3px 10px;
+}
+
+.pnl-btn-salir {
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(200,180,150,.45); background: none; border: none; cursor: pointer;
+  padding: 6px 0;
+  transition: color .25s;
+}
+.pnl-btn-salir:hover { color: rgba(225,100,85,.8); }
+
+/* ── CUERPO DEL PANEL ──────────────────────────────────── */
+.pnl-body {
+  max-width: 1200px; margin: 0 auto;
+  padding: 2.5rem clamp(1.5rem,4vw,3rem) 5rem;
+}
+
+.pnl-page-title {
+  font-family: var(--serif); font-size: clamp(22px,3vw,30px);
+  font-weight: 400; color: var(--crema-txt);
+  margin-bottom: .4rem;
+}
+
+.pnl-page-sub {
+  font-family: var(--sans); font-size: 11px;
+  letter-spacing: .1em; color: rgba(184,149,58,.4);
+  margin-bottom: 2rem;
+}
+
+/* ── ESTADÍSTICAS ──────────────────────────────────────── */
+.pnl-stats {
+  display: flex; gap: 1px; flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  border: 1px solid rgba(184,149,58,.12);
+}
+
+.pnl-stat {
+  flex: 1; min-width: 100px;
+  padding: 1.2rem 1.4rem;
+  background: rgba(154,116,50,.03);
+  border-right: 1px solid rgba(184,149,58,.08);
+  text-align: center;
+}
+.pnl-stat:last-child { border-right: none; }
+
+.pnl-stat-num {
+  display: block;
+  font-family: var(--serif); font-size: clamp(24px,3vw,34px);
+  font-weight: 400; color: var(--crema-txt);
+  line-height: 1;
+}
+
+.pnl-stat-label {
+  display: block;
+  font-family: var(--sans); font-size: 9px;
+  letter-spacing: .24em; text-transform: uppercase;
+  color: rgba(184,149,58,.45);
+  margin-top: .4rem;
+}
+
+/* ── TABLA DE ASPIRANTES ───────────────────────────────── */
+.pnl-table-wrap { overflow-x: auto; }
+
+.pnl-table {
+  width: 100%; border-collapse: collapse;
+  font-family: var(--sans);
+}
+
+.pnl-table th {
+  font-size: 9px; letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(184,149,58,.55);
+  padding: 10px 14px; text-align: left;
+  border-bottom: 1px solid rgba(184,149,58,.14);
+  white-space: nowrap;
+}
+
+.pnl-table td {
+  padding: 11px 14px;
+  font-size: 12px; color: rgba(215,200,175,.75);
+  border-bottom: 1px solid rgba(184,149,58,.06);
+  vertical-align: middle;
+}
+
+.pnl-table tr:hover td { background: rgba(154,116,50,.04); }
+
+/* Badge de estado */
+.pnl-badge {
+  display: inline-block;
+  font-family: var(--sans); font-size: 9px;
+  letter-spacing: .14em; text-transform: uppercase;
+  padding: 3px 9px;
+  border: 1px solid;
+  white-space: nowrap;
+}
+.pnl-badge--nuevo      { color: rgba(184,149,58,.9);   border-color: rgba(184,149,58,.25); }
+.pnl-badge--contactado { color: rgba(180,200,220,.8);   border-color: rgba(180,200,220,.2); }
+.pnl-badge--proceso    { color: rgba(200,180,100,.85);  border-color: rgba(200,180,100,.22); }
+.pnl-badge--aprobado   { color: rgba(130,190,130,.9);   border-color: rgba(130,190,130,.22); }
+.pnl-badge--rechazado  { color: rgba(200,90,80,.85);    border-color: rgba(200,90,80,.22); }
+
+/* Select de estado */
+.pnl-select {
+  background: rgba(14,13,11,.8);
+  border: 1px solid rgba(184,149,58,.18);
+  color: rgba(215,200,175,.8);
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .1em;
+  padding: 5px 8px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color .2s;
+}
+.pnl-select:focus { border-color: rgba(184,149,58,.45); }
+
+/* Botones de acción en tabla */
+.pnl-btn {
+  font-family: var(--sans); font-size: 9px;
+  letter-spacing: .15em; text-transform: uppercase;
+  background: none; border: 1px solid; cursor: pointer;
+  padding: 5px 10px;
+  transition: color .2s, border-color .2s, background .2s;
+}
+.pnl-btn--historial {
+  color: rgba(184,149,58,.6); border-color: rgba(184,149,58,.2);
+}
+.pnl-btn--historial:hover {
+  color: rgba(184,149,58,1); border-color: rgba(184,149,58,.5);
+  background: rgba(184,149,58,.05);
+}
+.pnl-btn--eliminar {
+  color: rgba(200,90,80,.6); border-color: rgba(200,90,80,.2);
+}
+.pnl-btn--eliminar:hover {
+  color: rgba(200,90,80,1); border-color: rgba(200,90,80,.5);
+  background: rgba(200,90,80,.05);
+}
+
+/* Mensaje vacío */
+.pnl-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-family: var(--serif); font-size: 18px; font-style: italic;
+  color: rgba(232,217,176,.25);
+  border: 1px solid rgba(184,149,58,.08);
+}
+
+/* ── MODALES ───────────────────────────────────────────── */
+.pnl-modal {
+  display: none; position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,.75);
+  align-items: center; justify-content: center;
+  padding: 2rem;
+}
+.pnl-modal.abierto { display: flex; }
+
+.pnl-modal-card {
+  width: 100%; max-width: 540px;
+  background: var(--negro);
+  border: 1px solid rgba(154,116,50,.22);
+  padding: 2.5rem 2.8rem;
+  position: relative;
+}
+
+.pnl-modal-cerrar {
+  position: absolute; top: 1.2rem; right: 1.4rem;
+  background: none; border: none; cursor: pointer;
+  font-family: var(--sans); font-size: 16px;
+  color: rgba(200,180,150,.35);
+  transition: color .2s;
+}
+.pnl-modal-cerrar:hover { color: rgba(200,180,150,.8); }
+
+.pnl-modal-title {
+  font-family: var(--serif); font-size: clamp(18px,2.5vw,22px);
+  font-weight: 400; color: var(--crema-txt);
+  margin-bottom: 1.8rem;
+}
+
+/* Historial */
+.pnl-historial-item {
+  padding: 1rem 1.2rem;
+  border-left: 2px solid rgba(184,149,58,.25);
+  margin-bottom: 1rem;
+  background: rgba(154,116,50,.03);
+}
+.pnl-historial-item:last-child { margin-bottom: 0; }
+
+.pnl-historial-estado {
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: rgba(184,149,58,.75); display: block; margin-bottom: .3rem;
+}
+
+.pnl-historial-fecha {
+  font-family: var(--sans); font-size: 11px;
+  color: rgba(215,200,175,.45);
+}
+
+/* Modal eliminar */
+.pnl-modal-aviso {
+  font-family: var(--sans); font-size: 13px;
+  line-height: 1.7; color: rgba(215,200,175,.65);
+  margin-bottom: 2rem;
+}
+
+.pnl-modal-acciones {
+  display: flex; gap: 1rem; justify-content: flex-end;
+}
+
+.pnl-btn--cancelar {
+  color: rgba(200,180,150,.5); border-color: rgba(200,180,150,.15);
+}
+.pnl-btn--cancelar:hover {
+  color: rgba(200,180,150,.9); border-color: rgba(200,180,150,.4);
+}
+.pnl-btn--confirmar {
+  color: rgba(200,90,80,.8); border-color: rgba(200,90,80,.3);
+}
+.pnl-btn--confirmar:hover {
+  color: rgba(200,90,80,1); border-color: rgba(200,90,80,.6);
+  background: rgba(200,90,80,.06);
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .pnl-stats { flex-direction: column; gap: 0; }
+  .pnl-stat  { border-right: none; border-bottom: 1px solid rgba(184,149,58,.08); }
+  .pnl-stat:last-child { border-bottom: none; }
+  .pnl-table th, .pnl-table td { padding: 8px 10px; }
+  .pnl-modal-card { padding: 2rem 1.6rem; }
+  .pnl-modal-acciones { flex-direction: column-reverse; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pnl-btn, .pnl-select, .pnl-btn-salir { transition: none; }
 }
