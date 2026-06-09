@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aspirantes — Logia Teófilo Leal N° 115</title>
+  <meta name="description" content="Formulario de solicitud para aspirantes a la Respetable Logia Teófilo Leal N° 115, Oriente de Barquisimeto.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/main.css">
+</head>
+
+<body class="bio-page">
+
+  <!-- ════════════════════════════════════════════════════
+       NAVEGACIÓN
+  ════════════════════════════════════════════════════ -->
+  <nav class="bio-nav" aria-label="Navegación principal">
+    <div class="nav">
+
+      <div class="brand">
+        <div class="mark">
+          <img src="../assets/img/logo.png" alt="Logo Logia Teófilo Leal N° 115">
+        </div>
+        <div class="name">
+          <b>Logia Teófilo Leal N° 115</b>
+          <span>Oriente de Barquisimeto</span>
+        </div>
+      </div>
+
+      <div class="menu">
+        <a href="../index.html">Inicio</a>
+        <a href="../index.html#acto2">Principios</a>
+        <a href="../index.html#acto3">Historia</a>
+        <a href="../index.html#acto4">La Logia</a>
+      </div>
+
+      <a href="../index.html" class="bio-nav-return" aria-label="Volver al inicio">
+        ← Volver
+      </a>
+
+    </div>
+  </nav>
+
+
+  <!-- ════════════════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════════════════ -->
+  <header class="bio-hero">
+    <div class="bio-hero-inner">
+
+      <div class="kicker" style="justify-content:center;">
+        <span class="rule"></span>
+        <span class="kicker-lbl">Proceso de iniciación</span>
+        <span class="kicker-sym">◆</span>
+        <span class="kicker-lbl">Logia N° 115</span>
+        <span class="rule"></span>
+      </div>
+
+      <h1 class="bio-hero-title">Solicitud de Aspirante</h1>
+
+      <p class="bio-hero-sub">
+        Si sientes el llamado a conocer el camino masónico, completa el siguiente formulario.
+        Tu solicitud será recibida con discreción y respeto fraternal.
+      </p>
+
+    </div>
+  </header>
+
+
+  <!-- ════════════════════════════════════════════════════
+       FORMULARIO
+  ════════════════════════════════════════════════════ -->
+  <main>
+    <div class="asp-form-section">
+      <div class="asp-form-card">
+
+        <!-- Encabezado de la tarjeta -->
+        <div class="asp-card-header">
+          <span class="asp-card-label">Información personal</span>
+          <h2 class="asp-card-title">Datos de contacto</h2>
+          <div class="asp-card-rule" aria-hidden="true"></div>
+          <p class="asp-card-sub">
+            Todos los campos son obligatorios. La información será tratada
+            con absoluta reserva institucional.
+          </p>
+        </div>
+
+        <!-- Formulario -->
+        <form id="form-aspirante" class="asp-form" autocomplete="off">
+
+          <div class="asp-field">
+            <label class="asp-label" for="nombre">Nombre y Apellido</label>
+            <input
+              class="asp-input"
+              type="text"
+              id="nombre"
+              name="nombre"
+              placeholder="Tu nombre completo"
+              required
+              autocomplete="name"
+            >
+          </div>
+
+          <div class="asp-field">
+            <label class="asp-label" for="edad">Edad</label>
+            <input
+              class="asp-input"
+              type="number"
+              id="edad"
+              name="edad"
+              placeholder="Años cumplidos"
+              min="18"
+              max="99"
+              required
+            >
+          </div>
+
+          <div class="asp-field">
+            <label class="asp-label" for="telefono">Teléfono</label>
+            <input
+              class="asp-input"
+              type="tel"
+              id="telefono"
+              name="telefono"
+              placeholder="Número de contacto"
+              required
+              autocomplete="tel"
+            >
+          </div>
+
+          <div class="asp-field">
+            <label class="asp-label" for="email">Correo Electrónico</label>
+            <input
+              class="asp-input"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Tu dirección de correo"
+              required
+              autocomplete="email"
+            >
+          </div>
+
+          <div class="asp-field">
+            <label class="asp-label" for="descripcion">
+              ¿Qué te motiva a acercarte a la Masonería?
+            </label>
+            <textarea
+              class="asp-textarea"
+              id="descripcion"
+              name="descripcion"
+              placeholder="Comparte brevemente tu interés o motivación…"
+              rows="5"
+              required
+            ></textarea>
+          </div>
+
+          <!-- Mensaje de estado -->
+          <div id="asp-mensaje" class="asp-msg" role="status" aria-live="polite"></div>
+
+          <button
+            type="submit"
+            id="asp-submit"
+            class="asp-submit"
+          >
+            Enviar Solicitud
+          </button>
+
+        </form>
+
+        <!-- Discreción -->
+        <p class="asp-discrecion">
+          Tu información será tratada con absoluta discreción.
+        </p>
+
+        <!-- Volver -->
+        <div class="asp-back">
+          <a href="../index.html" class="btn btn-secondary">
+            <span class="ln"></span>
+            Volver al inicio
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+
+  <!-- ════════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════════ -->
+  <footer class="bio-footer">
+    <span class="bio-footer-marca">Logia Teófilo Leal N° 115 · Oriente de Barquisimeto</span>
+    <span class="bio-footer-lema">Verdad, Fraternidad, Disciplina y Trabajo</span>
+    <span class="bio-footer-marca">© 2026</span>
+  </footer>
+
+
+  <!-- ════════════════════════════════════════════════════
+       LÓGICA DEL FORMULARIO
+  ════════════════════════════════════════════════════ -->
+  <script>
+    (function () {
+      const formulario = document.getElementById("form-aspirante");
+      const mensajeDiv = document.getElementById("asp-mensaje");
+      const btnEnviar  = document.getElementById("asp-submit");
+
+      if (!formulario || !mensajeDiv || !btnEnviar) return;
+
+      let timeoutMsg;
+
+      function mostrarMensaje(texto, tipo) {
+        clearTimeout(timeoutMsg);
+        mensajeDiv.textContent = texto;
+        mensajeDiv.className   = "asp-msg visible " + tipo;
+
+        timeoutMsg = setTimeout(function () {
+          mensajeDiv.className = "asp-msg";
+        }, 4000);
+      }
+
+      formulario.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        btnEnviar.disabled   = true;
+        btnEnviar.textContent = "Enviando…";
+        mostrarMensaje("Enviando solicitud…", "info");
+
+        const data = Object.fromEntries(new FormData(formulario).entries());
+
+        try {
+          const res = await fetch("/api/aspirantes", {
+            method:  "POST",
+            headers: { "Content-Type": "application/json" },
+            body:    JSON.stringify(data)
+          });
+
+          const result = await res.json();
+
+          if (!res.ok) {
+            mostrarMensaje(result.message || "Error al enviar la solicitud.", "error");
+            return;
+          }
+
+          formulario.reset();
+          mostrarMensaje("Solicitud enviada correctamente. Nos pondremos en contacto contigo.", "exito");
+
+        } catch (_) {
+          mostrarMensaje("Error de conexión. Verifica tu red e intenta nuevamente.", "error");
+
+        } finally {
+          btnEnviar.disabled    = false;
+          btnEnviar.textContent = "Enviar Solicitud";
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

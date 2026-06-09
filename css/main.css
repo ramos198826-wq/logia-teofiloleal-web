@@ -744,3 +744,144 @@ body.revealed .r5      { transition-delay: 1.24s; }
 @media (prefers-reduced-motion: reduce) {
   .bio-portrait-img { filter: none; }
 }
+
+
+/* ============================================================
+   FORMULARIO ASPIRANTES — prefijo .asp-*
+   Usado por: pages/aspirantes.html
+============================================================ */
+
+/* Sección contenedora */
+.asp-form-section {
+  padding: clamp(3rem,6vh,5rem) clamp(1.5rem,5vw,3rem) clamp(5rem,10vh,8rem);
+  display: flex; justify-content: center;
+}
+
+/* Tarjeta del formulario */
+.asp-form-card {
+  width: 100%; max-width: 600px;
+  border: 1px solid rgba(154,116,50,.2);
+  background: rgba(154,116,50,.03);
+  padding: clamp(2.5rem,5vh,4rem) clamp(2rem,5vw,3.5rem);
+}
+
+/* Encabezado de la tarjeta */
+.asp-card-header { text-align: center; margin-bottom: 3rem; }
+.asp-card-label {
+  display: block;
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .35em; text-transform: uppercase;
+  color: rgba(184,149,58,.55); margin-bottom: 1rem;
+}
+.asp-card-title {
+  font-family: var(--serif); font-size: clamp(22px,2.8vw,30px);
+  font-weight: 400; color: #e8d9b0;
+  line-height: 1.25; margin-bottom: 1.2rem; letter-spacing: .01em;
+}
+.asp-card-rule {
+  width: 40px; height: 1px;
+  background: var(--dorado); opacity: .5;
+  margin: 0 auto 1.4rem;
+}
+.asp-card-sub {
+  font-family: var(--sans); font-size: clamp(12px,1vw,14px);
+  line-height: 1.75; color: rgba(215,200,175,.5);
+  max-width: 400px; margin: 0 auto;
+}
+
+/* Formulario y campos */
+.asp-form { display: flex; flex-direction: column; gap: 1.8rem; }
+.asp-field { display: flex; flex-direction: column; gap: .55rem; }
+
+.asp-label {
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(184,149,58,.6);
+}
+
+.asp-input,
+.asp-textarea {
+  width: 100%;
+  background: rgba(14,13,11,.55);
+  border: 1px solid rgba(184,149,58,.2);
+  color: var(--crema-txt);
+  font-family: var(--cormorant); font-size: clamp(16px,1.7vw,18px);
+  font-weight: 300; line-height: 1.5;
+  padding: 13px 16px;
+  outline: none;
+  transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
+  -webkit-appearance: none; appearance: none;
+  border-radius: 0;
+}
+.asp-input:focus,
+.asp-textarea:focus {
+  border-color: rgba(184,149,58,.55);
+  box-shadow: 0 0 0 3px rgba(184,149,58,.05);
+}
+.asp-input::placeholder,
+.asp-textarea::placeholder { color: rgba(200,180,150,.22); font-style: italic; }
+
+/* Ocultar flechas del input numérico */
+.asp-input[type="number"]::-webkit-inner-spin-button,
+.asp-input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.asp-input[type="number"] { -moz-appearance: textfield; }
+
+.asp-textarea { resize: vertical; min-height: 128px; }
+
+/* Botón de envío */
+.asp-submit {
+  width: 100%; margin-top: .4rem;
+  padding: 16px;
+  background: rgba(14,13,11,.55);
+  border: 1px solid rgba(140,105,30,.65);
+  color: var(--crema-txt);
+  font-family: var(--sans); font-size: clamp(10px,.88vw,12px);
+  letter-spacing: .22em; text-transform: uppercase;
+  cursor: pointer;
+  transition: background .3s var(--ease), border-color .3s var(--ease),
+              transform .3s var(--ease), box-shadow .3s var(--ease), opacity .2s;
+}
+.asp-submit:hover:not(:disabled) {
+  border-color: var(--dorado); background: rgba(184,149,58,.07);
+  transform: translateY(-1px); box-shadow: 0 6px 24px rgba(184,149,58,.1);
+}
+.asp-submit:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+
+/* Mensaje de estado */
+.asp-msg {
+  font-family: var(--sans); font-size: 11px;
+  letter-spacing: .1em; text-align: center;
+  padding: 11px 16px;
+  border: 1px solid transparent;
+  opacity: 0; transition: opacity .35s var(--ease);
+}
+.asp-msg.visible { opacity: 1; }
+.asp-msg.info  { color: rgba(184,149,58,.85); border-color: rgba(184,149,58,.15); }
+.asp-msg.exito { color: rgba(130,210,130,.9);  border-color: rgba(130,210,130,.15); }
+.asp-msg.error { color: rgba(225,100,85,.9);   border-color: rgba(225,100,85,.18); }
+
+/* Texto de discreción */
+.asp-discrecion {
+  font-family: var(--sans); font-size: 10px;
+  letter-spacing: .15em; text-align: center;
+  color: rgba(184,149,58,.25); margin-top: 2rem;
+}
+
+/* Enlace de retorno */
+.asp-back {
+  text-align: center;
+  margin-top: 2.5rem; padding-top: 2rem;
+  border-top: 1px solid rgba(184,149,58,.1);
+  display: flex; justify-content: center;
+}
+
+/* Responsive formulario */
+@media (max-width: 700px) {
+  .asp-form-card { padding: 2rem 1.4rem; }
+  .asp-card-header { margin-bottom: 2.2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .asp-input, .asp-textarea, .asp-submit { transition: none; }
+  .asp-msg { transition: none; }
+}
